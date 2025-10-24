@@ -29,7 +29,9 @@ Payloads:
 
    -This is the file that the user will interact with after extracting the container. Typically, you want this file to be as easy to activate as possible! 
 
-   -Batch is a text-based file format used for scripting in Windows. The default windows command line interperter, cmd.exe, executes the command lines within the batch file. A batch files may have the .bat, .cmd, or .bmt file type. Typically when a batch file is executed it will print on screen the commands as if they were being typed out. This can be disabled with @echo off, at the top of the batch file. A trick with batch to change its behavior depending on whether the file was double-clicked or executed in command-line. https://x.com/vmray/status/1808903062926315690 
+   -Batch is a text-based file format used for scripting in Windows. The default windows command line interperter, cmd.exe, executes the command lines within the batch file. A batch files may have the .bat, .cmd, or .bmt file type. Typically when a batch file is executed it will print on screen the commands as if they were being typed out. This can be disabled with @echo off, at the top of the batch file. A trick with batch to change its behavior depending on whether the file was double-clicked or executed in command-line.   
+
+https://x.com/vmray/status/1808903062926315690 
 
     -Shell Link: a binary file format that is used to create Windows shortcuts. They use a .lnk file exstension, which is not shown in Explorer, regardless if 'show file name exstensions' is enabled. This allows a .lnk file to have filenames like report.pdf.lnk, and the user will only see report.pdf. Lnk files can also be customized with custom icons, so they could link to the cmd.exe but have a PDF icon. One of the easiest way to create a .lnk file is with WScript.Shell COM object via powershell. It's also possible to store and use an ICO file as a dependency inside the container. 
 
