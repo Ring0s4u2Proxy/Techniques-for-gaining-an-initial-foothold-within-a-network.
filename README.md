@@ -27,7 +27,7 @@ Payloads:
 
    Triggers: 
 
-   -This is the file that the user will interact with after extracting the container. Typically, you want this file to be as easy to activate as possible! 
+   -A trigger is the file that the user will interact with after extracting the container. Typically, you want this file to be as easy to activate as possible! 
 
    -Batch is a text-based file format used for scripting in Windows. The default windows command line interperter, cmd.exe, executes the command lines within the batch file. A batch files may have the .bat, .cmd, or .bmt file type. Typically when a batch file is executed it will print on screen the commands as if they were being typed out. This can be disabled with @echo off, at the top of the batch file. A trick with batch to change its behavior depending on whether the file was double-clicked or executed in command-line.   
 
@@ -37,6 +37,14 @@ Payloads:
 
   -Microsoft Saved Console: A technique that Elastic discovered, called 'GrimResource'. GrimResource's uses a specially crafted .msc (Microsoft Saved Console) file and an unpatched XSS flaw to trigger JavaScript code execution, using the Microsoft Management Console. https://gist.github.com/joe-desimone/2b0bbee382c9bdfcac53f2349a379fa4 The weaponised portion of the script is found on line 105. You can URL encode a payload like CyberChef, then paste the encoded string onto line 105. One the MSC file is double clicked it will launch an instance of mmce.exe, which will then spawn cmd.exe. MMC is an auto-elevating binary, so if a user is running as a local admin they will prompted with a UAC prompt, which will turn the payload high-integrity. 
 
-test
+ Delivery: 
+
+  -Delivery is the method that is employed in order to get the victim to download your payload. A forewarning: Most businesses tend to be front-heavy with their security. They usually spend more resources of parimeter defenses. It's common to see multiple layers of perimeter security such as firewalls, email gateways, web proxies, and more. Your package has to make it through all of this! 
+
+  -HTML Smuggling: This is a technique which encodes a file within the HTML content, and then uses JavaScript to decode and download it to the victim's machine. 
+
+  -SVG Smuggling: SVG Smuggling is essentially the same as HTML Smuggling, except it uses the SVG format instead. 
+
+   -Site Cloning: Host a website, that the target will likely use, on a standalone webserver, and manually backdoor one or more pages with the smuggling code. This can also be used for credential stealing. There are plenty of tools which allow you with relative easy to clone a website. https://github.com/SSV1396/Red-Team-Exercise Here is an excersie for credential stealing on a cloned website. 
 
     
